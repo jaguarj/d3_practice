@@ -10,8 +10,8 @@
 		<h3>Learn D3.js - Tutorials</h3>
 		
 		<div>
-			<p>Create a series of dots with an array of integers.</p>
-			<span>pg. 13</span>
+			<p>Create a series of dots with an array of integers. Animate the data with a setTimeout().</p>
+			<span>pg. 14</span>
 		</div>
 		
 		<div>
@@ -33,6 +33,16 @@
 				.attr("r", 10)
 				.attr("cy", 100)
 				.attr("cx", d => d)
+			
+			
+			setTimeout(function() {
+				d3.select("#chart").selectAll("circle")
+					.data([50, 75, 125, 225, 325, 425, 450])
+					.transition().duration(1000)
+					.attr("r", 5)
+					.attr("cx", d => d)
+					.style("fill", "red")
+			}, 2000)
 			
 		</script>
 	</body>
