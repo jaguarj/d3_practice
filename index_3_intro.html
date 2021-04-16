@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<head>
+	<title>D3.js Practice</title>
+	<link rel="stylesheet" href="css/styles.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/6.6.2/d3.min.js"integrity="sha512-L2eTGYYQqzK5YozYyUVrJKj2ZRnHE3QzV1+1yY6VXHExStF3potRZyEcD/B6sTOe04xYxB21QNLmVTQFcgwovg==" crossorigin="anonymous">
+	</script>
+</head>	
+
+	<body>
+		<h3>Learn D3.js - Tutorials</h3>
+		
+		<div>
+			<p>Create a series of dots with an array of integers. Animate the data with a setTimeout().</p>
+			<span>pg. 14</span>
+		</div>
+		
+		<div>
+			<svg id="chart" width="600" height="200"></svg>
+		</div>
+		
+		
+		<script>
+			
+			const array = [100, 200, 300, 350, 375, 400, 500]
+			
+			d3.select("#chart")
+				.selectAll("circle")
+				.data(array)
+
+				.enter()
+
+				.append("circle")
+				.attr("r", 10)
+				.attr("cy", 100)
+				.attr("cx", d => d)
+			
+			
+			setTimeout(function() {
+				d3.select("#chart").selectAll("circle")
+					.data([50, 75, 125, 225, 325, 425, 450])
+					.transition().duration(1000)
+					.attr("r", 5)
+					.attr("cx", d => d)
+					.style("fill", "red")
+			}, 2000)
+			
+		</script>
+	</body>
+</html>
