@@ -8,6 +8,7 @@
 
 	<body>
 		<h3>D3.js Tutorials</h3>
+		<p>Create a series of dots with an array of integers.</p>
 		
 		<svg id="chart" width="600" height="200"></svg>
 		
@@ -21,7 +22,7 @@
 			
 			d3.select("#chart")
 				.selectAll("circle")
-				.data([100])
+				.data(array)
 
 				.enter()
 
